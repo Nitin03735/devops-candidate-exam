@@ -1,0 +1,57 @@
+Started by user devops
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Running on Jenkins in /var/lib/jenkins/workspace/test3
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (TF Init)
+[Pipeline] sh
++ terraform init
+[0m[1mTerraform initialized in an empty directory![0m
+
+The directory has no Terraform configuration files. You may begin working
+with Terraform immediately by creating Terraform configuration files.[0m
+[Pipeline] echo
+Executing Terraform Init
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (TF Validate)
+[Pipeline] sh
++ terraform validate
+[32m[1mSuccess![0m The configuration is valid.
+[0m
+[Pipeline] echo
+Validating Terraform Code
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (TF Plan)
+[Pipeline] sh
++ terraform plan
+[31m╷[0m[0m
+[31m│[0m [0m[1m[31mError: [0m[0m[1mNo configuration files[0m
+[31m│[0m [0m
+[31m│[0m [0m[0mPlan requires configuration to be present. Planning without a configuration
+[31m│[0m [0mwould mark everything for destruction, which is normally not what is
+[31m│[0m [0mdesired. If you would like to destroy everything, run plan with the
+[31m│[0m [0m-destroy option. Otherwise, create a Terraform configuration file (.tf
+[31m│[0m [0mfile) and try again.
+[31m╵[0m[0m
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (TF Apply)
+Stage "TF Apply" skipped due to earlier failure(s)
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Invoke Lambda)
+Stage "Invoke Lambda" skipped due to earlier failure(s)
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+ERROR: script returned exit code 1
+Finished: FAILURE
