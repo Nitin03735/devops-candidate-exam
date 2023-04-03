@@ -1,6 +1,12 @@
 pipeline{
     agent any
     stages{
+        
+        stages ("GIT_CLONE"){
+                sh "rm -rvf *"
+                sh "git clone https://github.com/Nitin03735/devops-candidate-exam.git"
+             }
+        
         stage("TF Init"){
             steps{
                 sh "terraform init"
