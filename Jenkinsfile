@@ -1,13 +1,6 @@
 pipeline{
     agent any
-        stages{
-      
-        stage ("Clone Project"){
-            steps{
-                sh "git clone https://github.com/Nitin03735/devops-candidate-exam.git"
-            }
-         }
-        
+    stages{
         stage("TF Init"){
             steps{
                 sh "terraform init"
