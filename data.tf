@@ -9,3 +9,9 @@ data "aws_vpc" "vpc" {
 data "aws_iam_role" "lambda" {
   name = "DevOps-Candidate-Lambda-Role"
 }
+data "archive_file" "lambda" {
+  type        = "zip"
+  source_file = "lambda.js"
+  output_path = "lambda_function_payload.zip"
+}
+
